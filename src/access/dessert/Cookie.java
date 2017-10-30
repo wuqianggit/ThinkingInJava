@@ -8,7 +8,7 @@ package access.dessert;
  * 2017科达科技股份有限公司-版权所有
  * Created by wuqiang on 2017/10/30.
  */
-class Cookie {
+public class Cookie {
     public Cookie() {
         System.out.println("Cookie ");
     }
