@@ -50,7 +50,7 @@ public class BufferToText {
     public void testOutput() throws Exception{
         File file=new File("D:\\fileOut.txt");
         FileChannel fc = new FileOutputStream(file).getChannel();
-        fc.write(ByteBuffer.wrap("我是中国人，I am chinese!".getBytes("UTF-8")));
+        fc.write(ByteBuffer.wrap("我是中国人，I am chinese!".getBytes("UTF-16BE")));//使用不同的编码格式进行编码
         fc.close();
 
 
@@ -68,5 +68,17 @@ public class BufferToText {
         fc.read(bf);
         bf.flip();
         System.out.println(bf.asCharBuffer());
+    }
+
+    /**
+     * 字节操作
+     */
+    @Test
+    public void testChar(){
+
+        ByteBuffer bf = Charset.forName("UTF-8").encode("I love MissGao 小姐");
+        while(bf.hasRemaining()){
+            System.out.println((char) bf.get());
+        }
     }
 }
